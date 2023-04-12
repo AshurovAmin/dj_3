@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ client.name }}</h1>
+  <p>Гражданство: {{ client.citizenship }}</p>
+  <p>Год рождения: {{ client.birth_year }}</p>
+  <p>Место работы: {{ client.work_place }}</p>
+
+  <h2>Счета</h2>
+  <ul>
+    {% for account in accounts %}
+      <li>{{ account.number }} ({{ account.get_account_type_display }})</li>
+    {% empty %}
+      <li>Нет счетов</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Кредиты</h2>
+  <ul>
+    {% for credit in credits %}
+      <li>{{ credit.sum }} ({{ credit.date }})</li>
+    {% empty %}
+      <li>Нет кредитов</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

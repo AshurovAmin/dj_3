@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Клиенты</h1>
+  <ul>
+    {% for client in clients %}
+      <li><a href="{% url 'client_detail' client.id %}">{{ client.name }}</a></li>
+    {% empty %}
+      <li>Нет клиентов</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
